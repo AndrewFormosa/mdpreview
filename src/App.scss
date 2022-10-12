@@ -1,0 +1,69 @@
+$editorDisplay:inline-block;
+$editorHeight:30vh;
+
+
+
+
+.App {
+  text-align:center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:flex-start;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.editor{
+  display:$editorDisplay;
+  margin-top: 10px;
+  .text-area{
+  height: $editorHeight;
+  }
+}
+
+.title-bar{
+  background: green;
+  display:flex;
+
+  .title-heading{
+    margin-left:5px;
+    color:white;
+  }
+  .title-icon-expand{
+    display:inline-block;
+    width:100%;
+    margin-right:5px;
+    text-align: end;
+    button{
+      color:white;
+      background:none;
+      border: none;
+    }    
+    button:hover{
+      color:blue;
+    }
+  }
+    .title-icon-shrink{
+      display: none;
+      width:100%;
+      margin-right:5px;
+      text-align: end;
+      button{
+        color:white;
+        background:none;
+        border: none;
+      }    
+      button:hover{
+        color:blue;
+      }
+  
+
+  }
+}

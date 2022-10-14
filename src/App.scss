@@ -1,8 +1,6 @@
-$editorDisplay:inline-block;
-$editorHeight:30vh;
-
-
-
+$secondColor: rgb(94, 117, 164);
+$thirdColor:rgb(13, 13, 67);
+$fourthColor:rgb(198, 198, 218);
 
 .App {
   text-align:center;
@@ -14,40 +12,82 @@ $editorHeight:30vh;
   justify-content:flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
+
+
+}
+.my-heading{
+  padding: 5px;
+  border-radius: 10px;
+  border:1px solid white;
+  background: $secondColor;
+  color:$fourthColor;
+}
+
+.MyApp{
+ min-height: 100vh; 
+ 
 }
 
 .App-link {
   color: #61dafb;
 }
 
+
+
 .editor{
-  display:$editorDisplay;
-  margin-top: 10px;
+
+  margin-top: 30vh;
+
   .text-area{
-  height: $editorHeight;
+    background: $fourthColor;
+    border-radius: 0;
+    border:2px solid black;
+    min-height:30vh;
+    height: auto;
+  }
+}
+
+.previewer{
+  #preview{
+    background: $fourthColor;
+  border-radius: 0;
+  border: 2px solid black;
+ 
+  height:auto;
+  min-height: 30vh;
   }
 }
 
 .preview-settings{
+
+pre{
+  margin:5px;
+  padding:10px;
+  border: 1px solid black;
+  background: lightgrey;
+}
+
+
 table, th, td{
   padding:5px;
-  border:1px solid;
+  border:1px solid black;
 }
 img{
 max-width:100%;
 max-height: 100%;
-
 }
 
 }
 
 .title-bar{
-  background: green;
+  border: 2px solid black;
+  border-radius: 10px 10px 0px 0px;
+  background: $secondColor;
   display:flex;
 
   .title-heading{
     margin-left:5px;
-    color:white;
+    color:$fourthColor;
   }
   .title-icon-expand{
     display:inline-block;
@@ -79,4 +119,8 @@ max-height: 100%;
   
 
   }
+}
+
+.my-footer{
+  color:$secondColor;
 }

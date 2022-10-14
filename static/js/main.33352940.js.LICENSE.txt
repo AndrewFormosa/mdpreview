@@ -1,3 +1,32 @@
+/*!
+   * Sizzle CSS Selector Engine v2.3.6
+   * https://sizzlejs.com/
+   *
+   * Copyright JS Foundation and other contributors
+   * Released under the MIT license
+   * https://js.foundation/
+   *
+   * Date: 2021-02-16
+   */
+
+/*!
+ * jQuery JavaScript Library v3.6.1
+ * https://jquery.com/
+ *
+ * Includes Sizzle.js
+ * https://sizzlejs.com/
+ *
+ * Copyright OpenJS Foundation and other contributors
+ * Released under the MIT license
+ * https://jquery.org/license
+ *
+ * Date: 2022-08-26T17:52Z
+ */
+
+/*! @license DOMPurify 2.4.0 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.0/LICENSE */
+
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+
 /**
  * @license React
  * react-dom.production.min.js

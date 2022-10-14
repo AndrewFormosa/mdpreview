@@ -1,6 +1,16 @@
 import React from 'react';
 import './App.scss';
 import $ from 'jquery'; 
+import {marked} from 'marked';
+import DOMPurify from 'dompurify';
+
+import sanitizeHtml from 'sanitize-html';
+import Markdown from 'marked-react';
+import { newObjectInRealm } from 'jsdom/lib/jsdom/living/generated/utils';
+
+marked.options({
+  breaks:true
+})
 
 
 //$(document).ready(function(){
@@ -11,8 +21,6 @@ import $ from 'jquery';
 //    $(".text-area").css("height", "30vh");
 //  });
 //});
-
-
 
 
 class TitleBar extends React.Component{
@@ -61,13 +69,19 @@ expandArea(){
 
 
 class Editor extends React.Component{
+constructor(props){
+  super(props)
+}
+
+
+
 
   render(){
     return(
       <div className="editor expandable">
        <TitleBar targetElement={".editor"} title={"EDITOR"} />
        <div className="mb-2">
-  <textarea className="form-control text-area editor-area" id="exampleFormControlTextarea1" rows="3"></textarea>
+  <textarea onChange={()=>this.props.typeCallBack($("#editor").val())} className="form-control text-area editor-area" id="editor" rows="3"></textarea>
 </div>
         </div>
     )
@@ -76,15 +90,23 @@ class Editor extends React.Component{
 
 
 class Previewer extends React.Component{
+  constructor(props){
+    super(props);
+
+  }
+
 
   render(){
     return(
       <div className="previewer expandable">
        <TitleBar targetElement={".previewer"} title={"PREVIEWER"}/>
        <div className="mb-2">
-  <textarea className="form-control text-area previewer-area" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
+      <div dangerouslySetInnerHTML={{__html:this.props.previewText}}  id="preview" className="preview-settings" rows="3"/>
+
+        <div/>
         </div>
+      </div>
+        
     )
   }
 }
@@ -92,16 +114,38 @@ class Previewer extends React.Component{
 
 
 
-function App() {
+
+
+class App extends React.Component {
+constructor(props){
+  super(props);
+  this.state={text:""};
+  this.updateText=this.updateText.bind(this);
+}
+
+
+updateText(newText){
+  let parsedText=marked.parse(newText);
+  let sanitizedText=<div className="preview-settings" dangerouslySetInnerHTML={{__html:parsedText }}></div>
+  let markedDown=<Markdown>{newText}</Markdown>;
+  let otherSand=DOMPurify.sanitize(marked.parse(newText));
+  this.setState({text:parsedText});
+
+}
+
+
+
+
+render(){
   return (
     <div className="MyApp container">
       <div className="row">
-      <Editor/>
+      <Editor typeCallBack={(newText)=> this.updateText(newText)}/>
       first
       </div>
       <div className='row'>
-      <Previewer/>
-
+      <Previewer previewText={this.state.text}/>
+      {this.state.text}
         secod
       </div>
 
@@ -119,6 +163,7 @@ function App() {
 
     </div>
   );
+}
 }
 
 export default App;

@@ -2,8 +2,6 @@ import React from 'react';
 import './App.scss';
 import $ from 'jquery'; 
 import {marked} from 'marked';
-//import Markdown from 'marked-react';
-//import { setNodeSourceCodeLocation } from 'jsdom/lib/jsdom/living/domparsing/parse5-adapter-serialization';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
 
@@ -85,7 +83,10 @@ expandArea(){
     $(this.props.targetElement).css("display", "inline-block");
     let textAreaEllement=this.props.targetElement+" .text-area";
     $(textAreaEllement).css("height", "100%");
-    $(textAreaEllement).css("min-height","80vh")
+    $(textAreaEllement).css("min-height","80vh");
+  
+
+
     this.setState({textheight:$(textAreaEllement.css("height"))});
 
   };
@@ -181,7 +182,9 @@ render(){
   return (
     <div className="MyApp container">
 <div className="row">
-  <h1 className="my-heading my-3 text-center">Markdown Previewer</h1>
+  <div>
+  <h1 className="my-heading my-3 text-center">React Markdown Previewer</h1>
+</div>
 </div>
       <div className="row">
       <Editor typeCallBack={(newText)=> this.updateText(newText)}/>
